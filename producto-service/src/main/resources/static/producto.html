@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Productos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        h1 {
+            color: #444;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #f2f2f2;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Productos disponibles</h1>
+    <ul id="lista-productos">
+        <!-- Aquí se insertarán los productos con JS -->
+    </ul>
+
+    <script>
+        // Petición a la API para obtener productos
+        fetch('/api/productos')
+            .then(response => response.json())
+            .then(data => {
+                const lista = document.getElementById('lista-productos');
+                data.forEach(producto => {
+                    const item = document.createElement('li');
+                    item.textContent = `${producto.nombre} - $${producto.precio} ${producto.descripcion ? '(' + producto.descripcion + ')' : ''}`;
+                    lista.appendChild(item);
+                });
+            })
+            .catch(error => {
+                console.error('Error al cargar productos:', error);
+            });
+    </script>
+</body>
+</html>
