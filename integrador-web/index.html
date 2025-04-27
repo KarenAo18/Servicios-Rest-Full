@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+
+
+    <meta charset="UTF-8">
+    <title>Productos y Facturación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #listaFacturas {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        #listaFacturas li {
+            background-color: #e0ffe0;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Crear Producto</h1>
+    <input type="text" id="nombreProducto" placeholder="Nombre del producto">
+    <input type="text" id="descripcionProducto" placeholder="Descripción del producto">
+    <input type="number" id="precioProducto" placeholder="Precio del producto">
+    <input type="text" id="clienteProducto" placeholder="Nombre del cliente para el producto">
+    <button id="crearProducto">Crear Producto</button>
+
+    <h1>Crear Factura</h1>
+    <input type="text" id="clienteFactura" placeholder="Nombre del cliente para la factura">
+    <button id="crearFactura">Crear Factura</button>
+
+    <h2>Facturas</h2>
+    <button id="mostrarFacturas">Mostrar Facturas</button>
+    <ul id="listaFacturas"></ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
