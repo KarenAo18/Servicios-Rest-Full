@@ -1,5 +1,5 @@
 # Servicios-Rest-Full
-Este repositorio contiene servicios RESTful de productos y facturación, con un cliente web para interactuar con ellos
+Este repositorio contiene servicios RESTful de productos y facturación.
 
 ## Estructura del Proyecto
 
@@ -23,4 +23,4 @@ Desde consola Windows puedes ejecutarlo yendo a tu carpeta donde estan los archi
 2. **`producto-service`**:  **http://localhost:8081/swagger-ui/index.html (PaginaSwagger)**
 3. **`integrador-web`**:  **VisualStudioCode>click derecho>LiveServer**
 
-Es importante tomar en cuneta que sin **`mvn spring-boot:run`** no corren las paginas de servicio y por lo tanto no cargan bien los datos en el integrador
+Es importante tomar en cuenta que sin **`mvn spring-boot:run`** no corren las paginas de servicio y por lo tanto no cargan bien los datos en el integrador.
