@@ -17,7 +17,9 @@ El proyecto está dividido en tres módulos principales:
 
 ## Instrucciones de ejecución
 Desde consola Windows puedes ejecutarlo yendo a tu carpeta donde estan los archivos 
-**C:\Users\Nombre_deUsuario\Carpeta_archivos\Carpeta_facturacion-service**
-1. **`facturacion-service`**: 
-2. **`producto-service`**:
-3. **`integrador-web`**:
+**-C:\Users\Nombre_deUsuario\Carpeta_archivos\Carpeta_facturacion-service**
+**-mvn spring-boot:run** 
+1. **`facturacion-service`**:  **http://localhost:8080/swagger-ui/index.html (PaginaSwagger)**
+2. **`producto-service`**:  **http://localhost:8081/swagger-ui/index.html (PaginaSwagger)**
+3. **`integrador-web`**:  El vistamiento de la pagina se hace desde **VisualStudioCode>click derecho>LiveServer**
+
