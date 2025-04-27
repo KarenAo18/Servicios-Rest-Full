@@ -5,9 +5,9 @@ Este repositorio contiene servicios RESTful de productos y facturación, con un 
 
 El proyecto está dividido en tres módulos principales:
 
-1. **`facturacion-service`**: Servicio RESTful encargado de la gestión de facturas.
-2. **`producto-service`**: Servicio RESTful encargado de la gestión de productos.
-3. **`integrador-web`**: Cliente web para interactuar con los servicios `facturacion-service` y `producto-service`.
+1. **`facturacion-service`**: Servicio RESTful encargado de la gestión de facturas. Permite generar facturas a partir de productos
+2. **`producto-service`**: Servicio RESTful encargado de la gestión de productos. Permite agregar, eliminar y listar productos en un sistema.
+3. **`integrador-web`**: Cliente web para interactuar con los servicios `facturacion-service` y `producto-service`. 
 
 ## Requisitos
 
