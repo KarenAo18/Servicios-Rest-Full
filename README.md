@@ -16,8 +16,8 @@ El proyecto está dividido en tres módulos principales:
 - Dependencias de Spring Boot para los servicios RESTful.
 
 ## Instrucciones de ejecución
-
-1. Clona el repositorio en tu máquina local:
-
-   ```bash
-   git clone https://github.com/KarenAo18/Servicios-Rest-Full.git
+Desde consola Windows puedes ejecutarlo yendo a tu carpeta donde estan los archivos 
+**C:\Users\Nombre_deUsuario\Carpeta_archivos\Carpeta_facturacion-service**
+1. **`facturacion-service`**: 
+2. **`producto-service`**:
+3. **`integrador-web`**:
