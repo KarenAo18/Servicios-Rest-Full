@@ -1,10 +1,6 @@
 # Servicios-Rest-Full
 Este repositorio contiene servicios RESTful de productos y facturación, con un cliente web para interactuar con ellos
 
-# Servicios RESTful de Facturación y Producto
-
-Este repositorio contiene una serie de servicios RESTful para la gestión de productos y facturación, así como un cliente web para interactuar con estos servicios.
-
 ## Estructura del Proyecto
 
 El proyecto está dividido en tres módulos principales:
