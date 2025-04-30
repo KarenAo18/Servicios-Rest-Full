@@ -1,91 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-
-
     <meta charset="UTF-8">
-    <title>Productos y Facturación</title>
+    <title>Gestión de Productos y Facturas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 40px;
+            background-color: #f4f4f4;
         }
 
         h1, h2 {
-            text-align: center;
             color: #333;
         }
 
-        input[type="text"], input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0 20px 0;
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 300px;
+            padding: 8px;
+            margin-top: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            box-sizing: border-box;
         }
 
         button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
             border: none;
             border-radius: 5px;
-            color: white;
-            font-size: 16px;
             cursor: pointer;
-            margin-bottom: 15px;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #0056b3;
         }
 
-        #listaFacturas {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
+        ul {
+            margin-top: 30px;
+            padding-left: 20px;
         }
 
-        #listaFacturas li {
-            background-color: #e0ffe0;
-            margin-bottom: 10px;
-            padding: 10px;
+        li {
+            background-color: white;
+            padding: 12px;
+            margin-bottom: 8px;
             border-radius: 5px;
-            font-size: 15px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        .seccion {
+            margin-bottom: 60px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Crear Producto</h1>
-    <input type="text" id="nombreProducto" placeholder="Nombre del producto">
-    <input type="text" id="descripcionProducto" placeholder="Descripción del producto">
-    <input type="number" id="precioProducto" placeholder="Precio del producto">
-    <input type="text" id="clienteProducto" placeholder="Nombre del cliente para el producto">
-    <button id="crearProducto">Crear Producto</button>
+    <div class="seccion">
+        <h1>Crear Producto</h1>
 
-    <h1>Crear Factura</h1>
-    <input type="text" id="clienteFactura" placeholder="Nombre del cliente para la factura">
-    <button id="crearFactura">Crear Factura</button>
+        <label for="nombreProducto">Nombre del Producto:</label>
+        <input type="text" id="nombreProducto" placeholder="Ej. Computadora">
 
-    <h2>Facturas</h2>
-    <button id="mostrarFacturas">Mostrar Facturas</button>
-    <ul id="listaFacturas"></ul>
-</div>
+        <label for="descripcionProducto">Descripción:</label>
+        <input type="text" id="descripcionProducto" placeholder="Ej. Laptop de oficina">
 
-<script src="script.js"></script>
+        <label for="precioProducto">Precio:</label>
+        <input type="number" id="precioProducto" placeholder="Ej. 999.99" step="0.01">
+
+        <label for="clienteProducto">ID Cliente:</label>
+        <input type="number" id="clienteProducto" placeholder="Ej. 1">
+
+        <button id="crearProducto">Crear Producto</button>
+
+        <h2>Lista de Productos</h2>
+        <ul id="listaProductos"></ul>
+    </div>
+
+    <div class="seccion">
+        <h1>Crear Factura</h1>
+
+        <label for="fechaFactura">Fecha (YYYY-MM-DD):</label>
+        <input type="date" id="fechaFactura">
+
+        <label for="totalFactura">Total:</label>
+        <input type="number" id="totalFactura" placeholder="Ej. 1500.00" step="0.01">
+
+        <label for="clienteFactura">ID Cliente:</label>
+        <input type="number" id="clienteFactura" placeholder="Ej. 1">
+
+        <button id="crearFactura">Crear Factura</button>
+        
+        <h2>Crear nueva Factura</h2>
+        <input type="number" id="totalFactura" placeholder="Total de la factura">
+        <button id="crearFactura">Crear Factura</button>
+
+   
+         <h2>Lista de Facturas</h2>
+        <ul id="listaFacturas"></ul>
+    </div>
+
+
+
+    <script src="script.js"></script>
 </body>
 </html>

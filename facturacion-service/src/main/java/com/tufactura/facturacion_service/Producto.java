@@ -1,18 +1,16 @@
 package com.tufactura.facturacion_service;
 
-public class ProductoDTO {
+import jakarta.persistence.*;
 
-    private Long id;
+@Entity
+public class Producto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id; // ID único del producto
+
     private String nombre;
-    private String descripcion;
     private double precio;
-
-    public ProductoDTO(Long id, String nombre, String descripcion, double precio) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-    }
 
     // Getters y Setters
     public Long getId() {
@@ -29,14 +27,6 @@ public class ProductoDTO {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 
     public double getPrecio() {

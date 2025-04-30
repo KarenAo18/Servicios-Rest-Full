@@ -1,18 +1,17 @@
 package com.tuproducto.productos;
 
-
-import org.springframework.context.annotation.Bean;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.context.annotation.Configuration;
-import org.springdoc.core.models.GroupedOpenApi;
 
+@OpenAPIDefinition(
+    info = @Info(
+        title = "Producto Service API",
+        version = "v1",
+        description = "Documentación de la API para gestionar productos"
+    )
+)
 @Configuration
 public class OpenAPIConfig {
-
-    @Bean
-    public GroupedOpenApi publicApi() {
-        return GroupedOpenApi.builder()
-                .group("public")
-                .pathsToMatch("/**")
-                .build();
-    }
+    // Configuración adicional si es necesario
 }

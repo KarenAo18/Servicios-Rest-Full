@@ -1,44 +1,73 @@
 package com.tufactura.facturacion_service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/facturas")
-// Configuración CORS para permitir solicitudes desde otro dominio (ajusta según tu frontend)
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+@CrossOrigin(origins = "*") // Para que puedas probarlo desde cualquier cliente
 public class FacturaController {
 
-    // Inyección del servicio FacturaService
     @Autowired
-    private FacturaService facturaService;
+    private FacturaRepository facturaRepository;
 
-    // Crear factura simple
+    @Autowired
+    private ProductoRepository productoRepository;
+
+    @GetMapping
+    public List<Factura> listarFacturas() {
+        return facturaRepository.findAll();
+    }
+
+    @GetMapping("/con-productos")
+    public List<Factura> listarFacturasConProductos() {
+        return facturaRepository.findAll();
+    }
+
     @PostMapping
     public Factura crearFactura(@RequestBody Factura factura) {
-        System.out.println(factura);  // Esto imprimirá la factura recibida en la consola de Spring Boot
-        return facturaService.crearFactura(factura);
+        return facturaRepository.save(factura);
     }
 
-
-    // Crear factura con producto del otro servicio (producto-service)
-    @PostMapping("/con-producto/{productoId}")
-    public Factura crearFacturaConProducto(@PathVariable Long productoId,
-                                           @RequestParam String cliente) {
-        return facturaService.crearFacturaConProducto(productoId, cliente);  // Llamamos al método crearFacturaConProducto
+    @GetMapping("/{id}")
+    public Factura obtenerFactura(@PathVariable Long id) {
+        return facturaRepository.findById(id).orElse(null);
     }
 
-    // Obtener todas las facturas
-    @GetMapping
-    public List<Factura> obtenerFacturas() {
-        return facturaService.obtenerFacturas();  // Obtenemos todas las facturas a través del servicio
+    @PutMapping("/{id}")
+    public Factura actualizarFactura(@PathVariable Long id, @RequestBody Factura facturaActualizada) {
+        return facturaRepository.findById(id).map(factura -> {
+            factura.setDescripcion(facturaActualizada.getDescripcion());
+            factura.setTotal(facturaActualizada.getTotal());
+            factura.setFecha(facturaActualizada.getFecha());
+            return facturaRepository.save(factura);
+        }).orElse(null);
     }
 
-    // Eliminar una factura por su ID
     @DeleteMapping("/{id}")
     public void eliminarFactura(@PathVariable Long id) {
-        facturaService.eliminarFactura(id);  // Llamamos al método para eliminar factura por ID
+        facturaRepository.deleteById(id);
+    }
+
+    @PostMapping("/{facturaId}/productos/{productoId}")
+    public ResponseEntity<String> asignarProductoAFactura(@PathVariable Long facturaId, @PathVariable Long productoId) {
+        Optional<Factura> facturaOptional = facturaRepository.findById(facturaId);
+        Optional<Producto> productoOptional = productoRepository.findById(productoId);
+
+        if (facturaOptional.isPresent() && productoOptional.isPresent()) {
+            Factura factura = facturaOptional.get();
+            Producto producto = productoOptional.get();
+
+            factura.getProductos().add(producto);
+            facturaRepository.save(factura);
+
+            return ResponseEntity.ok("Producto asignado correctamente a la factura.");
+        } else {
+            return ResponseEntity.badRequest().body("Factura o producto no encontrados.");
+        }
     }
 }

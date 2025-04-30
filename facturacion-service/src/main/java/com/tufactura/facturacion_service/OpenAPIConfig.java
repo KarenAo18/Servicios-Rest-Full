@@ -7,12 +7,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class OpenAPIConfig {
+
     @Bean
     public OpenAPI apiInfo() {
         return new OpenAPI()
-            .info(new Info()
-                .title("API de Facturación")
-                .description("Documentación de la API de facturación")
-                .version("1.0"));
+                .info(new Info()
+                        .title("API de Facturación")
+                        .version("1.0")
+                        .description("Servicio REST para administrar facturas"));
     }
 }

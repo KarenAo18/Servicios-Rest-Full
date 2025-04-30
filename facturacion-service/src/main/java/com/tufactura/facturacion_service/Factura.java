@@ -1,43 +1,28 @@
 package com.tufactura.facturacion_service;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
+import java.time.LocalDate;
+import java.util.List;
+import com.tufactura.facturacion_service.Producto;  // Importar la clase Producto
 
 @Entity
+@Data
 public class Factura {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String clienteNombre; // <-- ESTE NOMBRE debe ser exactamente igual que en el JSON
-    private Double monto;
+    private String descripcion;
+    private Double total;
+    private LocalDate fecha;
 
-    // Getters y setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getClienteNombre() {
-        return clienteNombre;
-    }
-
-    public void setClienteNombre(String clienteNombre) {
-        this.clienteNombre = clienteNombre;
-    }
-
-    public Double getMonto() {
-        return monto;
-    }
-
-    public void setMonto(Double monto) {
-        this.monto = monto;
-    }
+    @ManyToMany
+    @JoinTable(
+        name = "factura_producto",  // Nombre de la tabla intermedia
+        joinColumns = @JoinColumn(name = "factura_id"),  // Columna de la factura
+        inverseJoinColumns = @JoinColumn(name = "producto_id")  // Columna de producto
+    )
+    private List<Producto> productos;  // Relación con productos
 }
