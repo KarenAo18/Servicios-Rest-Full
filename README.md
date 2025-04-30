@@ -36,7 +36,7 @@ Desde consola Windows puedes ejecutarlo yendo a tu carpeta donde estan los archi
   
 4. **`integrador-web`**:  **VisualStudioCode>click derecho>LiveServer**
    Se llenan los parametros iniciando con nombre,descripcion,precio y luego su ID.
-5. **`restf`**:
+5. **`restf`**:   **http://localhost:8082/swagger-ui/index.html**
    En proceso...
    
 Es importante tomar en cuenta que sin **`mvn spring-boot:run`** no corren las paginas de servicio y por lo tanto no cargan bien los datos en el integrador.
