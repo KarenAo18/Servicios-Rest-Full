@@ -3,11 +3,12 @@ Este repositorio contiene servicios RESTful de productos y facturación.
 
 ## Estructura del Proyecto
 
-El proyecto está dividido en tres módulos principales:
+El proyecto está dividido en tres módulos principales y su sistema integrador:
 
 1. **`facturacion-service`**: Servicio RESTful encargado de la gestión de facturas. Permite generar facturas a partir de productos
 2. **`producto-service`**: Servicio RESTful encargado de la gestión de productos. Permite agregar, eliminar y listar productos en un sistema.
-3. **`integrador-web`**: Cliente web para interactuar con los servicios `facturacion-service` y `producto-service`. 
+3. **`integrador-web`**: Cliente web para interactuar con los servicios `facturacion-service` y `producto-service`.
+4. **`restf`**: Este servicio integrador es el que te permite juntar los productos con las facturas.
 
 ## Requisitos
 
@@ -22,14 +23,20 @@ Desde consola Windows puedes ejecutarlo yendo a tu carpeta donde estan los archi
 1. **`facturacion-service`**:  **http://localhost:8080/swagger-ui/index.html (APISwagger)**
    Al momento de entrar a la pagina se puede dar uso agregando una estructura de este tipo:
    {
+  "total": 300,
+  "fecha": "2025-04-29",
+  }
+
+3. **`producto-service`**:  **http://localhost:8081/swagger-ui/index.html (APISwagger)**
+     {
   "nombre": "Agua Bonafont",
-  "descripcion": "Agua natural 1L",
+  "descripcion": "1L",
   "precio": 12.00
     }
-   en la parte POST/api/productos
-3. **`producto-service`**:  **http://localhost:8081/swagger-ui/index.html (APISwagger)**
-   De igual manera al entrar agregas solo nombre y un ID
-5. **`integrador-web`**:  **VisualStudioCode>click derecho>LiveServer**
-   Se llenan los parametros iniciando con productos y luego con ID y nombre.
+  
+4. **`integrador-web`**:  **VisualStudioCode>click derecho>LiveServer**
+   Se llenan los parametros iniciando con nombre,descripcion,precio y luego su ID.
+5. **`restf`**:
+   En proceso...
    
 Es importante tomar en cuenta que sin **`mvn spring-boot:run`** no corren las paginas de servicio y por lo tanto no cargan bien los datos en el integrador.
